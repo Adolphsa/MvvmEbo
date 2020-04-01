@@ -1,0 +1,9 @@
+Key Store Password:
+enabot
+
+Key:
+Alias: enabot
+Pw: enabot
+Validity (years): 25
+
+
