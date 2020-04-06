@@ -38,6 +38,7 @@
             android:textColor="@color/white"
             android:background="@android:color/transparent"
             android:textSize="16sp"
+            android:textAllCaps="false"
             />
 
         <ImageView
