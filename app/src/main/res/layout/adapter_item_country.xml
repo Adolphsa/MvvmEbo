@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="itemCountry"
+            type="com.lucas.ebo.ui.country.AdapterItemCountry" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/item_text_country_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingLeft="23dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="@{itemCountry.countryName}"
+            android:textColor="#888"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_text_country_name"
+            android:background="@color/divide_color_d2"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>
+

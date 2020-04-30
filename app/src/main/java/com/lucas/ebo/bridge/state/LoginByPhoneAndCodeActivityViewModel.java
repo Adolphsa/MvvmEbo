@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel;
 
 /**
  * Created by lucas
- * Date: 2020/4/1 18:50
+ * Date: 2020/4/28 17:57
  */
-public class LoginActivityViewModel extends ViewModel {
+public class LoginByPhoneAndCodeActivityViewModel extends ViewModel {
 
 }

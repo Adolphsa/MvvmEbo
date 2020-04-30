@@ -1,9 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activity.accout.SignUpActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+        <variable
+            name="vm"
+            type="com.lucas.ebo.bridge.state.SignUpActivityViewModel" />
+
+        <variable
+            name="click"
+            type="com.lucas.ebo.ui.activity.account.SignUpByPhoneActivity.ClickProxy" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.activity.account.SignUpByPhoneActivity">
+
+        <ImageView
+            android:id="@+id/sign_img_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="34dp"
+            android:padding="8dp"
+            android:src="@drawable/icon_close"
+            android:onClick="@{()->click.back()}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/sign_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Sign Up"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/sign_img_close"
+            />
+
+        <View
+            android:id="@+id/sign_divide1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="9dp"
+            android:background="@color/divide_color_d2"
+            app:layout_constraintTop_toBottomOf="@+id/sign_text_title" />
+
+        <TextView
+            android:id="@+id/sign_text_country_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:layout_marginRight="27dp"
+            android:layout_marginTop="30dp"
+            android:text="China mainland"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:onClick="@{()->click.toCountryPick()}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_divide1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginRight="27dp"
+            android:src="@drawable/icon_arrow_right"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_divide1" />
+
+        <View
+            android:id="@+id/sign_divide2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/divide_color_96"
+            app:layout_constraintTop_toBottomOf="@+id/sign_text_country_name" />
+
+        <TextView
+            android:id="@+id/sign_text_country_name_tip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="You won’t be able to change your region after you create your account."
+            android:textColor="@color/divide_color_96"
+            app:layout_constraintLeft_toLeftOf="@+id/sign_divide2"
+            app:layout_constraintRight_toRightOf="@+id/sign_divide2"
+            app:layout_constraintTop_toBottomOf="@+id/sign_divide2" />
+
+        <TextView
+            android:id="@+id/sign_text_country_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="+86 |"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/sign_divide2"
+            app:layout_constraintTop_toBottomOf="@+id/sign_text_country_name_tip" />
+
+        <EditText
+            android:id="@+id/sign_edit_phone_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:background="@null"
+            android:hint="Enter phone number"
+            android:textColorHint="@color/divide_color_96"
+            app:layout_constraintBottom_toBottomOf="@+id/sign_text_country_number"
+            app:layout_constraintLeft_toRightOf="@+id/sign_text_country_number"
+            app:layout_constraintRight_toRightOf="@id/sign_divide2"
+            app:layout_constraintTop_toBottomOf="@+id/sign_text_country_name_tip" />
+
+        <View
+            android:id="@+id/sign_divide3"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/divide_color_96"
+            app:layout_constraintTop_toBottomOf="@+id/sign_edit_phone_number" />
+
+        <EditText
+            android:id="@+id/sign_edit_auth_code"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@null"
+            android:hint="Enter code"
+            android:textColorHint="@color/divide_color_96"
+            app:layout_constraintLeft_toLeftOf="@+id/sign_divide3"
+            app:layout_constraintTop_toBottomOf="@+id/sign_divide3" />
+
+        <Button
+            android:id="@+id/sign_btn_send_code"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/transparent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Send code"
+            android:textAllCaps="false"
+            android:textColor="@color/auth_code_color"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/sign_edit_auth_code"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <View
+            android:id="@+id/sign_divide4"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/divide_color_96"
+            app:layout_constraintTop_toBottomOf="@+id/sign_edit_auth_code" />
+
+        <Button
+            android:id="@+id/sign_btn_login_or_sign"
+            drawable_radius="@{26}"
+            drawable_solidColor="@{0xffD2D2D2}"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="23dp"
+            android:text="Sign Up/Login"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_divide4" />
+
+        <TextView
+            android:id="@+id/sign_text_email_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Use email to sign up"
+            android:textColor="@color/gray_64"
+            android:textSize="15sp"
+            android:onClick="@{()->click.useEmailSignUp()}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_btn_login_or_sign" />
+
+
+        <LinearLayout
+            android:id="@+id/sign_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:padding="6dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_text_email_sign_up">
+
+            <TextView
+                android:id="@+id/sign_text_already_member"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already a member?"
+                android:textColor="@color/divide_color_96"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/sign_btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login In"
+                android:textColor="@color/gray_64"
+                android:textSize="15sp"
+                android:layout_marginLeft="8dp"
+                android:onClick="@{()->click.toLogin()}"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sign_text_privacy_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_ll"
+            android:layout_marginTop="30dp"
+            android:text="By signing up, you agree to Ebo’s "
+            android:textColor="@color/divide_color_96"
+            android:textSize="13sp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

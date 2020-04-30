@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--圆角矩形图片-->
+    <declare-styleable name="CircleImageView">
+        <attr name="circle" format="boolean" />
+        <attr name="radius" format="dimension" />
+        <attr name="border_width" format="dimension"/>
+        <attr name="border_color" format="color"/>
+    </declare-styleable>
+
+    <attr name="InnerColor" format="color"/>
+    <attr name="OuterColor" format="color"/>
+    <declare-styleable name="NavView">
+        <attr name="InnerColor" />
+        <attr name="OuterColor"/>
+    </declare-styleable>
+    <declare-styleable name="RockerView">
+    <attr name="areaBackground" format="color|reference"/>
+    <attr name="rockerBackground" format="color|reference"/>
+    <attr name="rockerRadius" format="dimension"/>
+
+</declare-styleable>
+
+    <declare-styleable name="CircularProgressView">
+        <attr name="backWidth" format="dimension" />    <!--背景圆环宽度-->
+        <attr name="progWidth" format="dimension" />    <!--进度圆环宽度-->
+        <attr name="backColor" format="color" />        <!--背景圆环颜色-->
+        <attr name="progColor" format="color" />        <!--进度圆环颜色-->
+        <attr name="progStartColor" format="color" />   <!--进度圆环开始颜色-->
+        <attr name="progFirstColor" format="color" />   <!--进度圆环结束颜色-->
+        <attr name="progress" format="integer" />       <!--圆环进度-->
+    </declare-styleable>
+
+    <declare-styleable name="pickerview">
+        <attr name="wheelview_gravity">
+            <enum name="center" value="17"/>
+            <enum name="left" value="3"/>
+            <enum name="right" value="5"/>
+        </attr>
+        <attr name="wheelview_textSize" format="dimension"/>
+        <attr name="wheelview_textColorOut" format="color"/>
+        <attr name="wheelview_textColorCenter" format="color"/>
+        <attr name="wheelview_dividerColor" format="color"/>
+        <attr name="wheelview_dividerWidth" format="dimension"/>
+        <attr name="wheelview_lineSpacingMultiplier" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="SideBar">
+        <attr name="letterColor" format="color"/>
+        <attr name="selectColor" format="color"/>
+        <attr name="letterSize" format="dimension"/>
+    </declare-styleable>
+</resources>

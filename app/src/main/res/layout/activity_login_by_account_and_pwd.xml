@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.activity.account.LoginByAccountAndPwdActivity">
+
+        <ImageView
+            android:id="@+id/login_img_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="34dp"
+            android:src="@drawable/icon_close"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/login_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Log In"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/login_divide1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="9dp"
+            android:background="@color/divide_color_d2"
+            app:layout_constraintTop_toBottomOf="@+id/login_text_title" />
+
+        <TextView
+            android:id="@+id/login_text_country_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="30dp"
+            android:text="China mainland"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_divide1" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginRight="27dp"
+            android:src="@drawable/icon_arrow_right"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_divide1" />
+
+        <View
+            android:id="@+id/login_divide2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/divide_color_96"
+            app:layout_constraintTop_toBottomOf="@+id/login_text_country_name" />
+
+        <TextView
+            android:id="@+id/login_text_country_name_tip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="You won’t be able to change your region after you create your account."
+            android:textColor="@color/divide_color_96"
+            app:layout_constraintLeft_toLeftOf="@+id/login_divide2"
+            app:layout_constraintRight_toRightOf="@+id/login_divide2"
+            app:layout_constraintTop_toBottomOf="@+id/login_divide2" />
+
+        <EditText
+            android:id="@+id/login_edit_phone_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="40dp"
+            android:background="@null"
+            android:hint="Email/Phone"
+            android:textColorHint="@color/divide_color_96"
+            app:layout_constraintBottom_toBottomOf="@+id/login_text_country_number"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/login_divide2"
+            app:layout_constraintTop_toBottomOf="@+id/login_text_country_name_tip" />
+
+        <View
+            android:id="@+id/login_divide3"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/divide_color_96"
+            app:layout_constraintTop_toBottomOf="@+id/login_edit_phone_number" />
+
+        <EditText
+            android:id="@+id/login_edit_auth_code"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@null"
+            android:hint="Enter Password"
+            android:textColorHint="@color/divide_color_96"
+            app:layout_constraintLeft_toLeftOf="@+id/login_divide3"
+            app:layout_constraintTop_toBottomOf="@+id/login_divide3" />
+
+        <ImageButton
+            android:id="@+id/login_img_btn_see1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="23dp"
+            android:src="@drawable/icon_pwd_unsee"
+            android:background="@color/transparent"
+            android:paddingLeft="10dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/login_edit_auth_code" />
+
+        <View
+            android:id="@+id/login_divide4"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="25dp"
+            android:background="@color/divide_color_96"
+            app:layout_constraintTop_toBottomOf="@+id/login_edit_auth_code" />
+
+        <Button
+            android:id="@+id/login_btn_continue"
+            drawable_radius="@{26}"
+            drawable_solidColor="@{0xffD2D2D2}"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="23dp"
+            android:text="Continue"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_divide4" />
+
+        <TextView
+            android:id="@+id/login_text_use_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Use SMS to login"
+            android:textColor="@color/gray_64"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_btn_continue" />
+
+
+        <TextView
+            android:id="@+id/login_text_forgot_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Forgotten your password?"
+            android:textColor="@color/gray_64"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_text_use_sms" />
+
+        <TextView
+            android:id="@+id/login_text_privacy_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_text_forgot_pwd"
+            android:layout_marginTop="80dp"
+            android:text="By signing up, you agree to Ebo’s "
+            android:textColor="@color/divide_color_96"
+            android:textSize="13sp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

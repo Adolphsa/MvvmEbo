@@ -22,8 +22,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.accout.LoginActivity"></activity>
-        <activity android:name=".ui.activity.accout.SignUpActivity" />
+        <activity android:name=".ui.country.CountryPickActivity"></activity>
+        <activity android:name=".ui.activity.account.LoginForgotPassword2Activity" />
+        <activity android:name=".ui.activity.account.LoginForgotPassword1Activity" />
+        <activity android:name=".ui.activity.account.LoginByAccountForeignActivity" />
+        <activity android:name=".ui.activity.account.LoginByAccountAndPwdActivity" />
+        <activity android:name=".ui.activity.account.SignUpByEmailForeignActivity" />
+        <activity android:name=".ui.activity.account.SignUpSetPasswordActivity" />
+        <activity android:name=".ui.activity.account.SignUpByEmailActivity" />
+        <activity android:name=".ui.activity.account.LoginByPhoneAndCodeActivity" />
+        <activity android:name=".ui.activity.account.SignUpByPhoneActivity" />
         <activity android:name=".ui.activity.splash.SplashLoginActivity" />
         <activity
             android:name=".ui.activity.splash.SplashActivity"

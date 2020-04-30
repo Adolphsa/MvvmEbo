@@ -10,4 +10,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
     <color name="gray">#E1E1E1</color>
+    <color name="gray_64">#646464</color>
+    <color name="gray_5f">#5F5F64</color>
+
+    <color name="divide_color_d2">#D2D2D2</color>
+    <color name="divide_color_96">#969696</color>
+
+    <color name="auth_code_color">#64C8FF</color>
+
 </resources>
