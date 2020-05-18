@@ -12,20 +12,26 @@ import com.lucas.ebo.data.repository.DataRepository;
  */
 public class SignUpActivityViewModel extends ViewModel {
 
-public MutableLiveData<RegisterResultBean> resultBeanMutableLiveData;
+    public MutableLiveData<RegisterResultBean> resultBeanMutableLiveData;
+
+    public MutableLiveData<String> countryDisplayName = new MutableLiveData<>();
+    public MutableLiveData<String> countryNumber = new MutableLiveData<>();
 
 
     public MutableLiveData<RegisterResultBean> getResultBeanMutableLiveData() {
-        if (resultBeanMutableLiveData == null)
-        {
+        if (resultBeanMutableLiveData == null) {
             resultBeanMutableLiveData = new MutableLiveData<>();
         }
         return resultBeanMutableLiveData;
     }
 
-    public void registerByEmail(String email, String pwd1, String pwd2)
-    {
+    public void registerByEmail(String email, String pwd1, String pwd2) {
         DataRepository.getInstance().registerByEmail(email, pwd1, pwd2, getResultBeanMutableLiveData());
+    }
+
+    {
+        countryDisplayName.setValue("China mainland");
+        countryNumber.setValue("+86 |");
     }
 
 }

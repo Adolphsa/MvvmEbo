@@ -13,6 +13,10 @@
             name="click"
             type="com.lucas.ebo.ui.country.CountryPickActivity.ClickProxy" />
 
+        <variable
+            name="activity"
+            type="com.lucas.ebo.ui.country.CountryPickActivity" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -54,7 +58,10 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="25dp"
             android:text="Done"
-            android:textColor="@color/divide_color_96"
+            android:onClick="@{() -> click.textDone()}"
+            android:enabled="@{vm.doneButtonEnable}"
+            textColor="@{vm.textColor}"
+            android:textColor="@color/country_default_color"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/country_text_title"
             app:layout_constraintRight_toRightOf="parent" />
@@ -68,8 +75,8 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="25dp"
-            android:drawableRight="@android:drawable/ic_menu_search"
             android:hint="Search..."
+            textChange="@{(str) ->activity.onTextChanged(str)}"
             android:imeOptions="actionSearch"
             android:singleLine="true"
             android:textColor="@color/black"
@@ -106,6 +113,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/country_text_tip"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            visible="@{vm.sideBarVisible}"
             app:letterColor="#888"
             app:letterSize="12sp"
             app:selectColor="#3C3" />
@@ -118,7 +128,8 @@
             android:gravity="center"
             android:textColor="#ffffffff"
             android:textSize="24sp"
-            android:visibility="gone"
+            android:text="@{vm.letter}"
+            visible="@{vm.letterVisible}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

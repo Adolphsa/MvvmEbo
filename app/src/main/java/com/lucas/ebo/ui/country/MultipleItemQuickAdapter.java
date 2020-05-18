@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.lucas.architecture.utils.LogUtils;
 import com.lucas.ebo.R;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  * Date: 2020/4/30 15:28
  */
 public class MultipleItemQuickAdapter extends BaseMultiItemQuickAdapter<QuickMultipleEntity, BaseViewHolder> {
+    private static final String TAG = "MultipleItemQuickAdapte";
 
     public MultipleItemQuickAdapter(List<QuickMultipleEntity> data) {
         super(data);
@@ -30,6 +32,13 @@ public class MultipleItemQuickAdapter extends BaseMultiItemQuickAdapter<QuickMul
                 break;
             case QuickMultipleEntity.COUNTRY_TEXT:
                 helper.setText(R.id.item_text_country_name, item.getItemCountry().getCountryName());
+                if (item.getItemCountry().isSelect())
+                {
+                    //如果被选择
+                    helper.setTextColorRes(R.id.item_text_country_name, R.color.country_select_color);
+                }else {
+                    helper.setTextColorRes(R.id.item_text_country_name, R.color.country_default_color);
+                }
                 break;
             default:
                 break;

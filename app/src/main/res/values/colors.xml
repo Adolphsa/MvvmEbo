@@ -17,5 +17,8 @@
     <color name="divide_color_96">#969696</color>
 
     <color name="auth_code_color">#64C8FF</color>
+    <color name="country_select_color">#FF9800</color>
+    <color name="country_default_color">#FF888888</color>
+
 
 </resources>

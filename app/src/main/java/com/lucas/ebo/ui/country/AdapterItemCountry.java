@@ -1,9 +1,6 @@
 package com.lucas.ebo.ui.country;
 
-import androidx.annotation.NonNull;
-
 import com.chad.library.adapter.base.entity.MultiItemEntity;
-import com.lucas.architecture.utils.PinyinUtil;
 
 /**
  * Created by lucas
@@ -27,6 +24,16 @@ public class AdapterItemCountry implements MultiItemEntity{
     private String countrySimpleName;
 
     public String pinyin;
+
+    public boolean isSelect() {
+        return isSelect;
+    }
+
+    public void setSelect(boolean select) {
+        isSelect = select;
+    }
+
+    public boolean isSelect;
 
 
     public String getCountryName() {

@@ -64,6 +64,9 @@ public class LocaleUtils {
             bean.setCountryNumber(countryCode);
             bean.setCountryName(displayCountry);
             bean.setCountrySimpleName(compactCountry);
+            bean.setSelect(false);
+//            LogUtils.d(TAG, "国家 = " + displayCountry + ",国家号 = " + countryCode);
+
             //获取拼音
             String pinyin = PinyinUtil.getPingYin(displayCountry);
             QuickMultipleEntity quickMultipleEntity = new QuickMultipleEntity(QuickMultipleEntity.COUNTRY_TEXT, bean, pinyin);

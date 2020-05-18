@@ -17,6 +17,9 @@
 package com.lucas.ebo.bridge.callback;
 
 import androidx.lifecycle.ViewModel;
+
+import com.lucas.architecture.bridge.callback.UnPeekLiveData;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +44,7 @@ public class SharedViewModel extends ViewModel {
     // 如果这么说还不理解的话，
     // 详见 https://xiaozhuanlan.com/topic/0168753249 和 https://xiaozhuanlan.com/topic/6257931840
 
+    public final UnPeekLiveData<String> countryDisplayName = new UnPeekLiveData<>();
+    public final UnPeekLiveData<Integer> countryNumber = new UnPeekLiveData<>();
 
 }

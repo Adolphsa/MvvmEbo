@@ -39,6 +39,13 @@ public class SignUpByPhoneActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSharedViewModel().countryDisplayName.observe(this, countryDisplayName -> {
+            mSignUpActivityViewModel.countryDisplayName.setValue(countryDisplayName);
+        });
+        getSharedViewModel().countryNumber.observe(this, countryNumber ->  {
+            mSignUpActivityViewModel.countryNumber.setValue("+" + countryNumber + " |");
+        });
     }
 
 
