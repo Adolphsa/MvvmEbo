@@ -4,17 +4,14 @@ import android.app.Activity;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStore;
 import androidx.lifecycle.ViewModelStoreOwner;
 
-import com.lucas.architecture.http.HttpManager;
 import com.lucas.architecture.utils.LogUtils;
 import com.lucas.architecture.utils.Utils;
-import com.orhanobut.logger.AndroidLogAdapter;
-import com.orhanobut.logger.Logger;
+import com.lucas.ebo.data.http.HttpManager;
 
 /**
  * Created by lucas
@@ -40,6 +37,8 @@ public class EboApplication extends Application implements ViewModelStoreOwner {
 
         instance = this;
         mAppViewModelStore = new ViewModelStore();
+
+        HttpManager.getInstance().init();
 
         Utils.init(this);
         initLogUtils();

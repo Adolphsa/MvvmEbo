@@ -23,7 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.country.CountryPickActivity"></activity>
-        <activity android:name=".ui.activity.account.LoginForgotPassword2Activity" />
+        <activity android:name=".ui.activity.account.RegisterSetPasswordActivity" />
         <activity android:name=".ui.activity.account.LoginForgotPassword1Activity" />
         <activity android:name=".ui.activity.account.LoginByAccountForeignActivity" />
         <activity android:name=".ui.activity.account.LoginByAccountAndPwdActivity" />
