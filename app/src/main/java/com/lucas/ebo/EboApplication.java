@@ -12,12 +12,13 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import com.lucas.architecture.utils.LogUtils;
 import com.lucas.architecture.utils.Utils;
 import com.lucas.ebo.data.http.HttpManager;
+import com.lucas.ebo.ui.base.BaseApplication;
 
 /**
  * Created by lucas
  * Date: 2020/4/1 18:31
  */
-public class EboApplication extends Application implements ViewModelStoreOwner {
+public class EboApplication extends BaseApplication implements ViewModelStoreOwner {
 
     private static EboApplication instance;
     public static EboApplication getInstance() {
@@ -87,4 +88,6 @@ public class EboApplication extends Application implements ViewModelStoreOwner {
         }
         return activity;
     }
+
+
 }

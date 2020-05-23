@@ -18,7 +18,6 @@ package com.lucas.ebo.ui.base;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.SparseArray;
@@ -26,7 +25,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -44,7 +42,6 @@ import com.lucas.architecture.data.manager.NetState;
 import com.lucas.architecture.data.manager.NetworkStateManager;
 import com.lucas.ebo.BR;
 import com.lucas.ebo.EboApplication;
-import com.lucas.ebo.R;
 import com.lucas.ebo.bridge.callback.SharedViewModel;
 
 
@@ -62,7 +59,7 @@ public abstract class BaseFragment extends Fragment {
     private ViewModelProvider mFragmentProvider;
     private ViewModelProvider mActivityProvider;
     private ViewDataBinding mBinding;
-    private TextView mTvStrictModeTip;
+//    private TextView mTvStrictModeTip;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -100,23 +97,22 @@ public abstract class BaseFragment extends Fragment {
      * @return
      */
     protected ViewDataBinding getBinding() {
-        if (isDebug() && mBinding != null) {
-            if (mTvStrictModeTip == null) {
-                mTvStrictModeTip = new TextView(getContext());
-                mTvStrictModeTip.setAlpha(0.5f);
-                mTvStrictModeTip.setTextSize(16);
-                mTvStrictModeTip.setBackgroundColor(Color.WHITE);
-                mTvStrictModeTip.setText(R.string.debug_fragment_databinding_warning);
-                ((ViewGroup) mBinding.getRoot()).addView(mTvStrictModeTip);
-            }
-        }
+//        if (isDebug() && mBinding != null) {
+//            if (mTvStrictModeTip == null) {
+//                mTvStrictModeTip = new TextView(getContext());
+//                mTvStrictModeTip.setAlpha(0.5f);
+//                mTvStrictModeTip.setTextSize(16);
+//                mTvStrictModeTip.setBackgroundColor(Color.WHITE);
+//                mTvStrictModeTip.setText(R.string.debug_fragment_databinding_warning);
+//                ((ViewGroup) mBinding.getRoot()).addView(mTvStrictModeTip);
+//            }
+//        }
         return mBinding;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         DataBindingConfig dataBindingConfig = getDataBindingConfig();
 
         //TODO tip: DataBinding 严格模式：

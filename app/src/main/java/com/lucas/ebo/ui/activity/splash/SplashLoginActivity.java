@@ -46,7 +46,6 @@ public class SplashLoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mActivitySplashLoginBinding = (ActivitySplashLoginBinding)getBinding();
 
         initAnimation();

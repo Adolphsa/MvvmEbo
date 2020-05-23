@@ -18,11 +18,8 @@ package com.lucas.ebo.ui.base;
 
 import android.content.pm.ApplicationInfo;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.SparseArray;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,11 +32,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.lucas.architecture.data.manager.NetworkStateManager;
 import com.lucas.architecture.utils.AdaptScreenUtils;
-import com.lucas.architecture.utils.BarUtils;
 import com.lucas.architecture.utils.ScreenUtils;
+import com.lucas.architecture.utils.StatusBarUtil;
 import com.lucas.ebo.BR;
 import com.lucas.ebo.EboApplication;
-import com.lucas.ebo.R;
 import com.lucas.ebo.bridge.callback.SharedViewModel;
 
 /**
@@ -50,7 +46,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private SharedViewModel mSharedViewModel;
     private ViewModelProvider mActivityProvider;
     private ViewDataBinding mBinding;
-    private TextView mTvStrictModeTip;
+//    private TextView mTvStrictModeTip;
 
     protected abstract void initViewModel();
 
@@ -65,16 +61,16 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @return
      */
     protected ViewDataBinding getBinding() {
-        if (isDebug() && mBinding != null) {
-            if (mTvStrictModeTip == null) {
-                mTvStrictModeTip = new TextView(getApplicationContext());
-                mTvStrictModeTip.setAlpha(0.5f);
-                mTvStrictModeTip.setTextSize(16);
-                mTvStrictModeTip.setBackgroundColor(Color.WHITE);
-                mTvStrictModeTip.setText(R.string.debug_activity_databinding_warning);
-                ((ViewGroup) mBinding.getRoot()).addView(mTvStrictModeTip);
-            }
-        }
+//        if (isDebug() && mBinding != null) {
+//            if (mTvStrictModeTip == null) {
+//                mTvStrictModeTip = new TextView(getApplicationContext());
+//                mTvStrictModeTip.setAlpha(0.5f);
+//                mTvStrictModeTip.setTextSize(16);
+//                mTvStrictModeTip.setBackgroundColor(Color.WHITE);
+//                mTvStrictModeTip.setText(R.string.debug_activity_databinding_warning);
+//                ((ViewGroup) mBinding.getRoot()).addView(mTvStrictModeTip);
+//            }
+//        }
         return mBinding;
     }
 
@@ -82,8 +78,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BarUtils.setStatusBarColor(this, Color.TRANSPARENT);
-        BarUtils.setStatusBarLightMode(this, true);
+        StatusBarUtil.setTranslucent(this);
+        StatusBarUtil.setLightMode(this);
 
         mSharedViewModel = ((EboApplication) getApplicationContext()).getAppViewModelProvider(this).get(SharedViewModel.class);
 
@@ -153,4 +149,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     public SharedViewModel getSharedViewModel() {
         return mSharedViewModel;
     }
+
+
 }

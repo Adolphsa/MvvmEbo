@@ -13,6 +13,8 @@ import com.lucas.ebo.R;
 import com.lucas.ebo.data.bean.respone.RegisterResultBean;
 import com.lucas.ebo.data.repository.DataRepository;
 
+import static com.lucas.ebo.utils.ColorConstant.COLOR_GRAY_D2;
+
 /**
  * Created by lucas
  * Date: 2020/4/1 18:50
@@ -59,7 +61,7 @@ public class SignUpActivityViewModel extends ViewModel {
         sendCodeTextColor.set(R.color.auth_code_color);
 
         continueButtonClickable.set(false);
-        continueButtonColor.set(0xffd2d2d2);
+        continueButtonColor.set(COLOR_GRAY_D2);
         continueButtonText.set("Sign Up/Login");
     }
 
