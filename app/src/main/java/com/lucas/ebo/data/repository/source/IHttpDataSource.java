@@ -16,12 +16,11 @@
 
 package com.lucas.ebo.data.repository.source;
 
-import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.MutableLiveData;
 
 import com.lucas.ebo.data.bean.request.AuthCodeRequestBean;
 import com.lucas.ebo.data.bean.request.RegisterRequestBean;
-import com.lucas.ebo.data.bean.respone.RegisterResultBean;
+import com.lucas.ebo.data.bean.response.RegisterResultBean;
 
 /**
  * Create by KunMinX at 19/10/29

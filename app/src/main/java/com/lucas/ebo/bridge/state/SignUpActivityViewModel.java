@@ -1,16 +1,13 @@
 package com.lucas.ebo.bridge.state;
 
-import android.graphics.drawable.Drawable;
-
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableField;
 import androidx.databinding.ObservableInt;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.lucas.architecture.utils.Utils;
 import com.lucas.ebo.R;
-import com.lucas.ebo.data.bean.respone.RegisterResultBean;
+import com.lucas.ebo.data.bean.response.RegisterResultBean;
 import com.lucas.ebo.data.repository.DataRepository;
 
 import static com.lucas.ebo.utils.ColorConstant.COLOR_GRAY_D2;

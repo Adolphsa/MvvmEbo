@@ -4,9 +4,7 @@ import androidx.lifecycle.ViewModel;
 
 /**
  * Created by lucas
- * Date: 2020/5/21 15:35
+ * Date: 2020/5/25 19:37
  */
-public class MainViewModel extends ViewModel {
-
-
+public class ReadyConnectViewModel extends ViewModel {
 }

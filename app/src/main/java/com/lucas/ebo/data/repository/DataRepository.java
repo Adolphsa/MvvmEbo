@@ -2,14 +2,13 @@ package com.lucas.ebo.data.repository;
 
 import android.text.TextUtils;
 
-import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.MutableLiveData;
 
 import com.lucas.architecture.utils.GsonUtils;
 import com.lucas.architecture.utils.LogUtils;
 import com.lucas.ebo.data.bean.request.AuthCodeRequestBean;
 import com.lucas.ebo.data.bean.request.RegisterRequestBean;
-import com.lucas.ebo.data.bean.respone.RegisterResultBean;
+import com.lucas.ebo.data.bean.response.RegisterResultBean;
 import com.lucas.ebo.data.callback.EboCallback;
 import com.lucas.ebo.data.config.EboUrl;
 import com.lucas.ebo.data.http.HttpManager;
@@ -18,7 +17,6 @@ import com.lucas.ebo.data.repository.source.ILocalDataSource;
 
 import java.util.HashMap;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import rxhttp.wrapper.param.RxHttp;
 
 import static com.lucas.ebo.data.config.EboUrl.BASE_USERS_URL;

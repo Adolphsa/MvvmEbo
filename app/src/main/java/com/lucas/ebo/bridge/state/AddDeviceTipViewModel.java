@@ -4,9 +4,7 @@ import androidx.lifecycle.ViewModel;
 
 /**
  * Created by lucas
- * Date: 2020/5/21 15:35
+ * Date: 2020/5/25 17:41
  */
-public class MainViewModel extends ViewModel {
-
-
+public class AddDeviceTipViewModel extends ViewModel {
 }

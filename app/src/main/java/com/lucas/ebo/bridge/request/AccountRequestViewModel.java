@@ -1,13 +1,12 @@
 package com.lucas.ebo.bridge.request;
 
-import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.lucas.ebo.data.bean.request.AuthCodeRequestBean;
 import com.lucas.ebo.data.bean.request.RegisterRequestBean;
-import com.lucas.ebo.data.bean.respone.RegisterResultBean;
+import com.lucas.ebo.data.bean.response.RegisterResultBean;
 import com.lucas.ebo.data.repository.DataRepository;
 
 /**

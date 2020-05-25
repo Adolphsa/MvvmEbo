@@ -15,15 +15,6 @@
         android:background="@color/black"
         tools:context=".ui.main.MainActivity">
 
-<!--        <View-->
-<!--            android:id="@+id/view_status_bar_place"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="25dp"-->
-<!--            android:background="@color/black"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            android:fitsSystemWindows="true"-->
-<!--            />-->
-
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"

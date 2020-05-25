@@ -1,4 +1,4 @@
-package com.lucas.ebo.data.bean.respone;
+package com.lucas.ebo.data.bean.response;
 
 import java.util.List;
 

@@ -25,6 +25,8 @@
     <color name="text_color_c8">#C8C8CD</color>
     <color name="bg_black_d">#1E1E23</color>
     <color name="tab_indicator_color">#FF9632</color>
+    <color name="device_item_color">#D2B478</color>
+    <color name="color_white_dc">#DCDCDC</color>
 
 
 </resources>
