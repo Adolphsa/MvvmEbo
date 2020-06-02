@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:text="Sophia"
+            android:text="Ebo"
             android:textColor="@color/text_color_c8"
             android:textSize="18sp"
             app:layout_constraintTop_toTopOf="@+id/img_head"

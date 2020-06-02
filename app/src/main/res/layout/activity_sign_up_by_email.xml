@@ -4,7 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="vm"
+            type="com.lucas.ebo.bridge.state.SignUpByEmailViewModel" />
 
+        <variable
+            name="click"
+            type="com.lucas.ebo.ui.activity.account.SignUpByEmailActivity.ClickProxy" />
+
+        <variable
+            name="activity"
+            type="com.lucas.ebo.ui.activity.account.SignUpByEmailActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +30,7 @@
             android:layout_marginLeft="23dp"
             android:layout_marginTop="34dp"
             android:src="@drawable/icon_close"
+            android:onClick="@{()->click.back()}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,17 +56,21 @@
 
         <TextView
             android:id="@+id/sign_text_country_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="23dp"
             android:layout_marginTop="30dp"
-            android:text="China mainland"
+            android:text="@{vm.countryDisplayName}"
             android:textColor="@color/black"
             android:textSize="18sp"
+            android:layout_marginRight="10dp"
+            android:onClick="@{()->click.toCountryPick()}"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/sign_img_right_arrow"
             app:layout_constraintTop_toBottomOf="@+id/sign_divide1" />
 
         <ImageView
+            android:id="@+id/sign_img_right_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
@@ -93,6 +108,9 @@
             android:layout_marginTop="40dp"
             android:background="@null"
             android:hint="Enter email address"
+            android:inputType="textEmailAddress"
+            android:text="@={vm.emailText}"
+            textChange="@{(str)->activity.onEmailTextChange(str)}"
             android:textColorHint="@color/divide_color_96"
             app:layout_constraintLeft_toLeftOf="@+id/sign_divide2"
             app:layout_constraintRight_toRightOf="@id/sign_divide2"
@@ -111,13 +129,15 @@
         <Button
             android:id="@+id/sign_btn_continue"
             drawable_radius="@{26}"
-            drawable_solidColor="@{0xffD2D2D2}"
+            drawable_solidColor="@{vm.continueButtonColor}"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginLeft="23dp"
             android:layout_marginTop="40dp"
             android:layout_marginRight="23dp"
             android:text="Continue"
+            android:clickable="@{vm.continueButtonClickable}"
+            android:onClick="@{() -> click.continueClick()}"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -133,6 +153,7 @@
             android:text="Use phone number to sign up"
             android:textColor="@color/gray_5f"
             android:textSize="15sp"
+            android:onClick="@{()->click.back()}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sign_btn_continue" />

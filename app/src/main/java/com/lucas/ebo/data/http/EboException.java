@@ -1,10 +1,8 @@
 package com.lucas.ebo.data.http;
 
-import com.lucas.architecture.utils.LogUtils;
-import com.lucas.architecture.utils.ToastUtils;
+import com.coder.zzq.smartshow.toast.SmartToast;
 import com.lucas.ebo.data.callback.EboCallback;
 import com.lucas.ebo.data.config.EboCodeRule;
-import com.lucas.ebo.data.parser.ResponseParser;
 
 import java.io.IOException;
 
@@ -27,28 +25,39 @@ public class EboException extends IOException {
         this.msg = msg;
     }
 
-    public static void handleFailure(int code, String msg)
-    {
+    public static void handleFailure(int code, String msg) {
         switch (code) {
             case EboCodeRule.CODE_193106:
-                ToastUtils.showShortSafe("手机号已被注册");
+                SmartToast.showInCenter("手机号已被注册");
                 break;
             case EboCodeRule.CODE_193107:
             case EboCodeRule.CODE_193108:
             case EboCodeRule.CODE_193115:
-                ToastUtils.showShortSafe("消息发送太频繁");
+                SmartToast.showInCenter("消息发送太频繁");
                 break;
 
             case EboCodeRule.CODE_193114:
-                ToastUtils.showShortSafe("验证码已过期");
+                SmartToast.showInCenter("验证码已过期");
                 break;
 
             case EboCodeRule.CODE_193112:
-                ToastUtils.showShortSafe("验证码错误");
+                SmartToast.showInCenter("验证码错误");
                 break;
+
+            case EboCodeRule.CODE_193119:
+                SmartToast.showInCenter("账号已激活");
+                break;
+
+            case EboCodeRule.CODE_193109:
+                SmartToast.showInCenter("账号未激活");
+                break;
+
             default:
                 break;
         }
     }
 
+    public static void handleError() {
+        SmartToast.showInCenter("网络异常");
+    }
 }

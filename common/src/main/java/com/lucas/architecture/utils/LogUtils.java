@@ -18,7 +18,7 @@ public class LogUtils {
 
         FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
                 // （可选）要显示的方法行数。 默认2
-                .methodCount(3)
+                .methodCount(2)
                 .tag("EBO_LOGGER")
                 .build();
         Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy) {

@@ -1,7 +1,5 @@
 package com.lucas.ebo.data.config;
 
-import rxhttp.wrapper.annotation.DefaultDomain;
-
 import static com.lucas.ebo.BuildConfig.SERVER_URL_CN;
 
 /**
@@ -22,6 +20,8 @@ public class EboUrl {
     public static final String SERVER_REGISTER_URL = "register/";
 
     public static final String SERVER_CHECK_PARAMS_URL = "check_params/";
+
+    public static final String SERVER_ACTIVE_AGAIN_URL = "active_again/";
 
     public static final String SERVER_GET_CODE_URL = "messages/";
 

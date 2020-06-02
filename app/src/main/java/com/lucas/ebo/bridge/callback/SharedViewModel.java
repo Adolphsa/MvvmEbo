@@ -20,9 +20,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.lucas.architecture.bridge.callback.UnPeekLiveData;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * TODO tip：callbackViewModel 的职责仅限于 页面通信，不建议在此处理 UI 逻辑，
@@ -46,5 +43,12 @@ public class SharedViewModel extends ViewModel {
 
     public final UnPeekLiveData<String> countryDisplayName = new UnPeekLiveData<>();
     public final UnPeekLiveData<Integer> countryNumber = new UnPeekLiveData<>();
+    public final UnPeekLiveData<String> countrySimpleName = new UnPeekLiveData<>();
+
+    public final UnPeekLiveData<String> phoneNumber = new UnPeekLiveData<>();
+    public final UnPeekLiveData<String> phoneAuthCode = new UnPeekLiveData<>();
+
+    public final UnPeekLiveData<String> emailAddress = new UnPeekLiveData<>();
+
 
 }

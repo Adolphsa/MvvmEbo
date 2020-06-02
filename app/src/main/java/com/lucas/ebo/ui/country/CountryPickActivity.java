@@ -1,15 +1,11 @@
 package com.lucas.ebo.ui.country;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.ViewDataBinding;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
@@ -19,7 +15,6 @@ import com.lucas.architecture.utils.ThreadUtils;
 import com.lucas.ebo.BR;
 import com.lucas.ebo.R;
 import com.lucas.ebo.databinding.ActivityCountryPickBinding;
-import com.lucas.ebo.generated.callback.OnTextChangedListener;
 import com.lucas.ebo.ui.base.BaseActivity;
 import com.lucas.ebo.ui.base.DataBindingConfig;
 import com.lucas.ebo.ui.view.SideBar;
@@ -242,6 +237,7 @@ public class CountryPickActivity extends BaseActivity {
             LogUtils.d(TAG, "国家 = " + mCountryDisplayName + ",国家号 = " + mCountryNumber + "国家简称 = " + mCountrySimpleName);
             getSharedViewModel().countryDisplayName.setValue(mCountryDisplayName);
             getSharedViewModel().countryNumber.setValue(mCountryNumber);
+            getSharedViewModel().countrySimpleName.setValue(mCountrySimpleName);
             finish();
         }
     }

@@ -3,11 +3,10 @@ package com.lucas.ebo.ui.activity.splash;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.lucas.ebo.R;
+import com.lucas.ebo.data.repository.DataRepository;
 import com.lucas.ebo.ui.base.BaseActivity;
 import com.lucas.ebo.ui.base.DataBindingConfig;
+import com.lucas.ebo.ui.main.MainActivity;
 
 /**
  * Created by lucas
@@ -34,13 +33,30 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_splash);
 
-        toSplashActivity();
+//        toSplashLoginActivity();
+
+        if (DataRepository.getInstance().getLoginStatus())
+        {
+            //已经登录
+            toMainActivity();
+        }else {
+            toSplashLoginActivity();
+        }
+
     }
 
-    private void toSplashActivity()
+    private void toSplashLoginActivity()
     {
         Intent intent = new Intent(this, SplashLoginActivity.class);
         startActivity(intent);
         finish();
     }
+
+    private void toMainActivity()
+    {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

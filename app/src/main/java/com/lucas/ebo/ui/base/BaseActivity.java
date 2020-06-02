@@ -30,6 +30,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.coder.zzq.smartshow.dialog.LoadingDialog;
 import com.lucas.architecture.data.manager.NetworkStateManager;
 import com.lucas.architecture.utils.AdaptScreenUtils;
 import com.lucas.architecture.utils.ScreenUtils;
@@ -47,6 +48,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     private ViewModelProvider mActivityProvider;
     private ViewDataBinding mBinding;
 //    private TextView mTvStrictModeTip;
+
+    private LoadingDialog mLoadingDialog;
 
     protected abstract void initViewModel();
 
@@ -137,6 +140,26 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void showShortToast(int stringRes) {
         showShortToast(getApplicationContext().getString(stringRes));
+    }
+
+    protected void showLoading()
+    {
+        if (mLoadingDialog == null) {
+            mLoadingDialog = new LoadingDialog()
+                    .large()
+                    .withMsg(true)
+                    .message("正在加载");
+        }
+        mLoadingDialog.showInActivity(this);
+    }
+
+    protected void dismissLoading()
+    {
+        if (mLoadingDialog != null)
+        {
+            mLoadingDialog.dismiss();
+            mLoadingDialog = null;
+        }
     }
 
     protected <T extends ViewModel> T getActivityViewModel(@NonNull Class<T> modelClass) {

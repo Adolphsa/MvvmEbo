@@ -116,4 +116,22 @@ public class RegisterRequestBean {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
+    @Override
+    public String toString() {
+        return "RegisterRequestBean{" +
+                "app_token='" + app_token + '\'' +
+                ", device_id='" + device_id + '\'' +
+                ", app_kind='" + app_kind + '\'' +
+                ", registry_region='" + registry_region + '\'' +
+                ", language='" + language + '\'' +
+                ", password_1='" + password_1 + '\'' +
+                ", password_2='" + password_2 + '\'' +
+                ", phone_message='" + phone_message + '\'' +
+                ", phone_num='" + phone_num + '\'' +
+                ", phone_area='" + phone_area + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

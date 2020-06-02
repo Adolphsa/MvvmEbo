@@ -1,11 +1,9 @@
 package com.lucas.ebo.data.http;
 
+import com.coder.zzq.smartshow.toast.SmartToast;
 import com.lucas.architecture.utils.GsonUtils;
 import com.lucas.architecture.utils.LogUtils;
 import com.lucas.architecture.utils.NetworkUtils;
-import com.lucas.architecture.utils.ThreadUtils;
-import com.lucas.architecture.utils.ToastUtils;
-import com.lucas.architecture.utils.Utils;
 import com.lucas.ebo.data.callback.EboCallback;
 import com.lucas.ebo.data.config.EboCodeRule;
 import com.lucas.ebo.ui.base.BaseResponse;
@@ -17,6 +15,7 @@ import javax.net.ssl.X509TrustManager;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import okhttp3.OkHttpClient;
+import rxhttp.wrapper.cookie.CookieStore;
 import rxhttp.wrapper.param.RxHttp;
 import rxhttp.wrapper.ssl.X509TrustManagerImpl;
 
@@ -51,6 +50,7 @@ public class HttpManager {
         X509TrustManager trustAllCert = new X509TrustManagerImpl();
 
         return new OkHttpClient.Builder()
+                .cookieJar(new CookieStore())
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS)
                 .writeTimeout(10, TimeUnit.SECONDS)
@@ -68,7 +68,7 @@ public class HttpManager {
      * @param commonCallback callback
      */
     private void handleSuccess(String result, EboCallback commonCallback) {
-        LogUtils.d(TAG, result);
+//        LogUtils.d(TAG, result);
         if (commonCallback != null) {
             BaseResponse baseResponse = GsonUtils.fromJson(result, BaseResponse.class);
             if (baseResponse != null) {
@@ -95,6 +95,7 @@ public class HttpManager {
         LogUtils.d(TAG, "请求失败 " + throwable.getMessage());
         if (commonCallback != null) {
             commonCallback.onException(throwable.getMessage());
+            EboException.handleError();
         }
     }
 
@@ -109,7 +110,7 @@ public class HttpManager {
 
         //首先检查网络
         if (!NetworkUtils.isConnected()) {
-            ToastUtils.showShortSafe("请检查网络");
+            SmartToast.showInCenter("请检查网络");
             return;
         }
         RxHttp.get(url)
@@ -137,7 +138,7 @@ public class HttpManager {
 
         //首先检查网络
         if (!NetworkUtils.isConnected()) {
-            ToastUtils.showShortSafe("请检查网络");
+            SmartToast.showInCenter("请检查网络");
             return;
         }
 
@@ -166,7 +167,7 @@ public class HttpManager {
 
         //首先检查网络
         if (!NetworkUtils.isConnected()) {
-            ToastUtils.showShortSafe("请检查网络");
+            SmartToast.showInCenter("请检查网络");
             return;
         }
 
@@ -194,7 +195,7 @@ public class HttpManager {
 
         //首先检查网络
         if (!NetworkUtils.isConnected()) {
-            ToastUtils.showShortSafe("请检查网络");
+            SmartToast.showInCenter("请检查网络");
             return;
         }
 

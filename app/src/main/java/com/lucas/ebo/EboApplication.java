@@ -9,16 +9,21 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStore;
 import androidx.lifecycle.ViewModelStoreOwner;
 
+import com.coder.zzq.smartshow.core.SmartShow;
+import com.didichuxing.doraemonkit.DoraemonKit;
 import com.lucas.architecture.utils.LogUtils;
 import com.lucas.architecture.utils.Utils;
 import com.lucas.ebo.data.http.HttpManager;
 import com.lucas.ebo.ui.base.BaseApplication;
+import com.tencent.mmkv.MMKV;
 
 /**
  * Created by lucas
  * Date: 2020/4/1 18:31
  */
 public class EboApplication extends BaseApplication implements ViewModelStoreOwner {
+
+    private static final String TAG = "EboApplication";
 
     private static EboApplication instance;
     public static EboApplication getInstance() {
@@ -39,10 +44,16 @@ public class EboApplication extends BaseApplication implements ViewModelStoreOwn
         instance = this;
         mAppViewModelStore = new ViewModelStore();
 
+        DoraemonKit.install(this, "b89a0cb40a5996b1c4da537294f374a6");
+
         HttpManager.getInstance().init();
 
         Utils.init(this);
         initLogUtils();
+
+        SmartShow.init(this);
+
+        initMMKV();
     }
 
     /**
@@ -51,6 +62,12 @@ public class EboApplication extends BaseApplication implements ViewModelStoreOwn
     private void initLogUtils()
     {
         LogUtils.initLogger();
+    }
+
+    private void initMMKV()
+    {
+        String rootDir = MMKV.initialize(this);
+        LogUtils.d(TAG, "mmkv path = " + rootDir);
     }
 
     @NonNull

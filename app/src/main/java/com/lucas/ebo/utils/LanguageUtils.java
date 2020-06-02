@@ -3,6 +3,8 @@ package com.lucas.ebo.utils;
 import android.content.Context;
 import android.os.Build;
 
+import com.lucas.architecture.utils.LogUtils;
+
 import java.util.Locale;
 
 /**
@@ -10,6 +12,8 @@ import java.util.Locale;
  * Date: 2020/4/29 15:58
  */
 public class LanguageUtils {
+
+    private static final String TAG = "LanguageUtils";
 
     /**
      * 获得当前系统语言(第二种方法，这种方法需要判断设备是否大于 Android 7.0)
@@ -31,4 +35,17 @@ public class LanguageUtils {
         }
         return null;
     }
+
+    public static boolean isChinaMain(Context context)
+    {
+        String currentLanguage = getCurrentLanguage(context);
+        LogUtils.d(TAG, "现在的语言是:" + currentLanguage);
+        if ("zh".equals(currentLanguage))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
 }

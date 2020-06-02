@@ -16,8 +16,21 @@
 
 package com.lucas.ebo.data.repository.source;
 
+import com.lucas.ebo.data.bean.response.RegisterResultBean;
+
 /**
  * Create by KunMinX at 19/10/29
  */
 public interface ILocalDataSource {
+
+    void saveLoginStatus(boolean loginStatus);
+
+    boolean getLoginStatus();
+
+    void saveUserId(int userId);
+
+    int getUserId();
+
+    void saveUserInfo(RegisterResultBean registerResultBean);
+
 }

@@ -14,26 +14,26 @@ public class RegisterResultBean {
      * code : 193100
      */
 
-    private DataBean data;
-    private int code;
+//    private DataBean data;
+//    private int code;
 
-    public DataBean getData() {
-        return data;
-    }
-
-    public void setData(DataBean data) {
-        this.data = data;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public static class DataBean {
+//    public DataBean getData() {
+//        return data;
+//    }
+//
+//    public void setData(DataBean data) {
+//        this.data = data;
+//    }
+//
+//    public int getCode() {
+//        return code;
+//    }
+//
+//    public void setCode(int code) {
+//        this.code = code;
+//    }
+//
+//    public static class DataBean {
         /**
          * user_id : 30
          * username : EEN6R375
@@ -52,11 +52,11 @@ public class RegisterResultBean {
 
         private int user_id;
         private String username;
-        private Object phone_num;
+        private String phone_num;
         private String email;
-        private Object nickname;
-        private Object avatar;
-        private Object phone_area;
+        private String nickname;
+        private String avatar;
+        private String phone_area;
         private boolean is_valid;
         private int gender;
         private boolean changed_pwd;
@@ -80,11 +80,11 @@ public class RegisterResultBean {
             this.username = username;
         }
 
-        public Object getPhone_num() {
+        public String getPhone_num() {
             return phone_num;
         }
 
-        public void setPhone_num(Object phone_num) {
+        public void setPhone_num(String phone_num) {
             this.phone_num = phone_num;
         }
 
@@ -96,27 +96,27 @@ public class RegisterResultBean {
             this.email = email;
         }
 
-        public Object getNickname() {
+        public String getNickname() {
             return nickname;
         }
 
-        public void setNickname(Object nickname) {
+        public void setNickname(String nickname) {
             this.nickname = nickname;
         }
 
-        public Object getAvatar() {
+        public String getAvatar() {
             return avatar;
         }
 
-        public void setAvatar(Object avatar) {
+        public void setAvatar(String avatar) {
             this.avatar = avatar;
         }
 
-        public Object getPhone_area() {
+        public String getPhone_area() {
             return phone_area;
         }
 
-        public void setPhone_area(Object phone_area) {
+        public void setPhone_area(String phone_area) {
             this.phone_area = phone_area;
         }
 
@@ -203,5 +203,25 @@ public class RegisterResultBean {
                 this.machine_version = machine_version;
             }
         }
+//    }
+
+
+    @Override
+    public String toString() {
+        return "RegisterResultBean{" +
+                "user_id=" + user_id +
+                ", username='" + username + '\'' +
+                ", phone_num='" + phone_num + '\'' +
+                ", email='" + email + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", phone_area='" + phone_area + '\'' +
+                ", is_valid=" + is_valid +
+                ", gender=" + gender +
+                ", changed_pwd=" + changed_pwd +
+                ", third_party=" + third_party +
+                ", accept_email=" + accept_email +
+                ", robots=" + robots +
+                '}';
     }
 }

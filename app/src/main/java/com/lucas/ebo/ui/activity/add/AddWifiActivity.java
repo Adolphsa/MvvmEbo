@@ -1,5 +1,6 @@
 package com.lucas.ebo.ui.activity.add;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.lucas.architecture.utils.StatusBarUtil;
@@ -43,12 +44,13 @@ public class AddWifiActivity extends BaseActivity {
 
         public void back()
         {
-
+            finish();
         }
 
         public void toNext()
         {
-
+            Intent intent = new Intent(AddWifiActivity.this, ScanQRActivity.class);
+            startActivity(intent);
         }
     }
 }

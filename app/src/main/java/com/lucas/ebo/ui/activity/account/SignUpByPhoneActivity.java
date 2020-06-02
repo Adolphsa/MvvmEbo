@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
 
+import com.coder.zzq.smartshow.toast.SmartToast;
 import com.lucas.architecture.utils.LogUtils;
 import com.lucas.architecture.utils.RegexUtils;
-import com.lucas.architecture.utils.ToastUtils;
 import com.lucas.ebo.BR;
 import com.lucas.ebo.R;
 import com.lucas.ebo.bridge.request.AccountRequestViewModel;
@@ -56,6 +56,7 @@ public class SignUpByPhoneActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mCountDownTimer = new CountDownTimer(ALL_TIME, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -77,10 +78,34 @@ public class SignUpByPhoneActivity extends BaseActivity {
             mSignUpActivityViewModel.countryNumber.setValue("+" + countryNumber);
         });
 
+        mAccountRequestViewModel.sendCodeBoolean.observe(SignUpByPhoneActivity.this, aBoolean -> {
+            if (aBoolean) {
+
+                dismissLoading();
+
+                if (mCountDownTimer != null) {
+                    mCountDownTimer.start();
+                    mSignUpActivityViewModel.sendCodeClickable.set(false);
+                    mSignUpActivityViewModel.sendCodeTextColor.set(R.color.divide_color_96);
+                }
+
+                String phoneNumber = mSignUpActivityViewModel.phoneNumber.get();
+                LogUtils.d(TAG, "输入的号码为 = " + phoneNumber);
+
+                //发送获取验证码
+                AuthCodeRequestBean authCodeRequestBean = new AuthCodeRequestBean();
+                authCodeRequestBean.setLanguage("zh-hans");
+                authCodeRequestBean.setPhone_num(phoneNumber);
+                authCodeRequestBean.setOperation("register");
+                authCodeRequestBean.setPhone_area(mSignUpActivityViewModel.countryNumber.getValue());
+                mAccountRequestViewModel.requestGetAuthCode(authCodeRequestBean);
+            }else {
+                dismissLoading();
+            }
+        });
     }
 
     public void onAuthCodeTextChange(String str) {
-        LogUtils.d(TAG, "输入的验证码为 = " + str);
         if (!TextUtils.isEmpty(str)) {
             mSignUpActivityViewModel.continueButtonClickable.set(true);
             mSignUpActivityViewModel.continueButtonColor.set(COLOR_ORANGE_96);
@@ -113,63 +138,49 @@ public class SignUpByPhoneActivity extends BaseActivity {
         }
 
         public void sendCode() {
-
+            showLoading();
             String phoneNumber = mSignUpActivityViewModel.phoneNumber.get();
             if (TextUtils.isEmpty(phoneNumber)) {
-                ToastUtils.showShort("电话号码为空");
+                SmartToast.showInCenter("电话号码为空");
+                dismissLoading();
                 return;
             }
             if (!RegexUtils.isMobileSimple(phoneNumber)) {
-                ToastUtils.showShort("请输入正确的手机号码");
+                SmartToast.showInCenter("请输入正确的手机号码");
+                dismissLoading();
                 return;
             }
 
-            LogUtils.d(TAG, "输入的号码为 = " + phoneNumber);
-
+            //检查号码是否合法
             AuthCodeRequestBean checkParams = new AuthCodeRequestBean();
             checkParams.setPhone_num(phoneNumber);
             checkParams.setPhone_area(mSignUpActivityViewModel.countryNumber.getValue());
             mAccountRequestViewModel.requestCheckParams(checkParams);
-
-            mAccountRequestViewModel.sendCodeBoolean.observe(SignUpByPhoneActivity.this, aBoolean -> {
-                LogUtils.d(TAG, "检查号码 = " + aBoolean);
-                if (aBoolean) {
-                    if (mCountDownTimer != null) {
-                        mCountDownTimer.start();
-                        mSignUpActivityViewModel.sendCodeClickable.set(false);
-                        mSignUpActivityViewModel.sendCodeTextColor.set(R.color.divide_color_96);
-                    }
-
-                    //发送获取验证码
-                    AuthCodeRequestBean authCodeRequestBean = new AuthCodeRequestBean();
-                    authCodeRequestBean.setLanguage("zh-hans");
-                    authCodeRequestBean.setPhone_num(phoneNumber);
-                    authCodeRequestBean.setOperation("register");
-                    authCodeRequestBean.setPhone_area(mSignUpActivityViewModel.countryNumber.getValue());
-                    mAccountRequestViewModel.requestGetAuthCode(authCodeRequestBean);
-
-                }
-            });
-
         }
 
         public void registerClick() {
+
             String phoneNumber = mSignUpActivityViewModel.phoneNumber.get();
+            String phoneAuthCode = mSignUpActivityViewModel.authCode.get();
+
             if (TextUtils.isEmpty(phoneNumber)) {
-                ToastUtils.showShort("电话号码为空");
+                SmartToast.showInCenter("电话号码为空");
                 return;
             }
             if (!RegexUtils.isMobileSimple(phoneNumber)) {
-                ToastUtils.showShort("请输入正确的手机号码");
+                SmartToast.showInCenter("请输入正确的手机号码");
                 return;
             }
+
+            getSharedViewModel().phoneNumber.setValue(phoneNumber);
+            getSharedViewModel().phoneAuthCode.setValue(phoneAuthCode);
 
             Intent intent = new Intent(SignUpByPhoneActivity.this, RegisterSetPasswordActivity.class);
             startActivity(intent);
         }
 
         public void useEmailSignUp() {
-            LogUtils.d(TAG, "用邮箱登录点击");
+            LogUtils.d(TAG, "用邮箱注册");
             //to Email sign up
             Intent intent = new Intent(SignUpByPhoneActivity.this, SignUpByEmailActivity.class);
             startActivity(intent);

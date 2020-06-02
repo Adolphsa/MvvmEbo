@@ -39,23 +39,24 @@
         <activity android:name=".ui.activity.account.SignUpByEmailActivity" />
         <activity android:name=".ui.activity.account.LoginByPhoneAndCodeActivity" />
         <activity android:name=".ui.activity.account.SignUpByPhoneActivity" />
-        <activity android:name=".ui.activity.splash.SplashLoginActivity" /> <!-- <activity -->
-        <!-- android:name=".ui.activity.splash.SplashActivity" -->
-        <!-- android:theme="@style/SplashTheme"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
-        <!-- <activity android:name=".ui.main.MainActivity" /> -->
-        <activity android:name=".ui.main.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".ui.activity.splash.SplashLoginActivity" />
+         <activity
+         android:name=".ui.activity.splash.SplashActivity"
+         android:theme="@style/SplashTheme">
+         <intent-filter>
+         <action android:name="android.intent.action.MAIN" />
+         <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+         </activity>
+         <activity android:name=".ui.main.MainActivity" />
+<!--        <activity android:name=".ui.main.MainActivity">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".ui.activity.splash.SplashActivity" />
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--        <activity android:name=".ui.activity.splash.SplashActivity" />-->
     </application>
 
 </manifest>

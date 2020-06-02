@@ -1,5 +1,6 @@
 package com.lucas.ebo.ui.activity.add;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.lucas.architecture.utils.StatusBarUtil;
@@ -47,7 +48,8 @@ public class ReadyConnectActivity extends BaseActivity {
 
         public void toNext()
         {
-
+            Intent intent = new Intent(ReadyConnectActivity.this, AddWifiActivity.class);
+            startActivity(intent);
         }
 
     }

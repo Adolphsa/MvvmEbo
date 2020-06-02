@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.didi.dokit'
 
 def rootAndroidId = rootProject.ext.androidId
 def serverDomain = rootProject.ext.url
@@ -82,9 +83,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures{
+        dataBinding = true
     }
+//    dataBinding {
+//        enabled = true
+//    }
 
 }
 
@@ -101,6 +105,20 @@ dependencies {
     support.each { k, v -> implementation v }
 
     implementation project(':common') // 公共基础库
+
+    //didi 
+    debugImplementation "com.didichuxing.doraemonkit:doraemonkit:3.1.5"
+    releaseImplementation "com.didichuxing.doraemonkit:doraemonkit-no-op:3.1.5"
+
+    //smart-show
+    implementation ('com.github.the-pig-of-jungle.smart-show:all:3.0.2')
+
+    //mmkv
+    implementation 'com.tencent:mmkv-static:1.1.1'
+
+    //room
+    implementation "androidx.room:room-runtime:2.2.5"
+    annotationProcessor "androidx.room:room-compiler:2.2.5"
 
     //PagerBottomTabStrip
     implementation 'me.majiajie:pager-bottom-tab-strip:2.3.0X'

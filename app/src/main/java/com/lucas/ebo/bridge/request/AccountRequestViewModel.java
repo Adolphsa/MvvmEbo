@@ -19,6 +19,8 @@ public class AccountRequestViewModel extends ViewModel {
 
     public MutableLiveData<Boolean> sendCodeBoolean = new MutableLiveData<>();
 
+    public MutableLiveData<Boolean> emailIsActive = new MutableLiveData<>();
+
     public LiveData<RegisterResultBean> getRegisterResultBeanLiveData()
     {
         if (mRegisterResultBeanLiveData == null)
@@ -43,6 +45,11 @@ public class AccountRequestViewModel extends ViewModel {
     public void requestGetAuthCode(AuthCodeRequestBean authCodeRequestBean)
     {
         DataRepository.getInstance().getAuthCode(authCodeRequestBean);
+    }
+
+    public void checkEmailActiveStatus(String check)
+    {
+        DataRepository.getInstance().checkEmailIsActive(check, emailIsActive);
     }
 
 }

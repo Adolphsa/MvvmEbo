@@ -29,10 +29,12 @@ public interface IHttpDataSource {
 
     void registerByPhone(RegisterRequestBean registerRequestBean, MutableLiveData<RegisterResultBean> liveData);
 
-    void registerByEmail(String email,  String pwd1, String pwd2, MutableLiveData<RegisterResultBean> liveData);
+    void registerByEmail(String email, String pwd1, String pwd2, MutableLiveData<RegisterResultBean> liveData);
 
     void checkParam(AuthCodeRequestBean authCodeRequestBean, MutableLiveData<Boolean> sendCodeBoolean);
 
     void getAuthCode(AuthCodeRequestBean authCodeRequestBean);
+
+    void checkEmailIsActive(String check, MutableLiveData<Boolean> sendCodeBoolean);
 
 }

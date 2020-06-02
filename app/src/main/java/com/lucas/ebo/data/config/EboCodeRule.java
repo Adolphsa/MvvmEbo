@@ -27,6 +27,12 @@ public class EboCodeRule {
     //两种类型的消息发送间隔均为1分中
     public static final int CODE_193115 = 193115;
 
+    //账号已激活
+    public static final int CODE_193119 = 193119;
+
+    //账号未激活
+    public static final int CODE_193109 = 193109;
+
     public static final int CODE_194400 = 194400;
 
 

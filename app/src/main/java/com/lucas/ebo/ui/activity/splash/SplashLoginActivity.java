@@ -12,10 +12,13 @@ import com.lucas.ebo.BR;
 import com.lucas.ebo.R;
 import com.lucas.ebo.bridge.state.SplashLoginActivityViewModel;
 import com.lucas.ebo.databinding.ActivitySplashLoginBinding;
+import com.lucas.ebo.ui.activity.account.LoginByAccountForeignActivity;
 import com.lucas.ebo.ui.activity.account.LoginByPhoneAndCodeActivity;
+import com.lucas.ebo.ui.activity.account.SignUpByEmailForeignActivity;
 import com.lucas.ebo.ui.activity.account.SignUpByPhoneActivity;
 import com.lucas.ebo.ui.base.BaseActivity;
 import com.lucas.ebo.ui.base.DataBindingConfig;
+import com.lucas.ebo.utils.LanguageUtils;
 
 /**
  * Created by lucas
@@ -81,15 +84,35 @@ public class SplashLoginActivity extends BaseActivity {
         }
 
         public void signUpClick() {
-            LogUtils.d(TAG,"注册通过手机号，国内");
-            Intent intent = new Intent(SplashLoginActivity.this, SignUpByPhoneActivity.class);
-            startActivity(intent);
+
+            //如果当前语言是中文，那么就跳转到通过电话注册的页面，
+            //如果不是中文，就跳转到通过邮箱注册的页面
+            boolean isChinaMain = LanguageUtils.isChinaMain(SplashLoginActivity.this);
+            if (isChinaMain)
+            {
+                LogUtils.d(TAG,"国内, 通过手机号注册");
+                Intent intent = new Intent(SplashLoginActivity.this, SignUpByPhoneActivity.class);
+                startActivity(intent);
+            }else {
+                LogUtils.d(TAG,"国外, 通过邮箱注册");
+                Intent intent = new Intent(SplashLoginActivity.this, SignUpByEmailForeignActivity.class);
+                startActivity(intent);
+            }
         }
 
         public void loginClick() {
-            LogUtils.d(TAG,"点击loginClick");
-            Intent intent = new Intent(SplashLoginActivity.this, LoginByPhoneAndCodeActivity.class);
-            startActivity(intent);
+
+            boolean isChinaMain = LanguageUtils.isChinaMain(SplashLoginActivity.this);
+            if (isChinaMain)
+            {
+                LogUtils.d(TAG,"国内, 通过手机号登录");
+                Intent intent = new Intent(SplashLoginActivity.this, LoginByPhoneAndCodeActivity.class);
+                startActivity(intent);
+            }else {
+                LogUtils.d(TAG,"国外, 通过邮箱登录");
+                Intent intent = new Intent(SplashLoginActivity.this, LoginByAccountForeignActivity.class);
+                startActivity(intent);
+            }
         }
     }
 }
